@@ -11,15 +11,15 @@ running.
 Follow these simple steps to have the project running on your machine. Please note the project depends on nodejs and docker to be installed in the system.
 
 ```shell
-git clone https://github.com/pilosa/getting-started.git
-cd getting-started
+git clone https://github.com/mhshifat/nestjs-prisma-docker-react-app.git
+cd nestjs-prisma-docker-react-app
 docker-compose up --build
 ```
 
 open up a new terminal and type
 
 ```shell
-cd getting-started
+cd nestjs-prisma-docker-react-app
 npm run migrate
 npm run start:dev
 ```
@@ -27,7 +27,7 @@ npm run start:dev
 open up a new terminal and type
 
 ```shell
-cd getting-started/client
+cd nestjs-prisma-docker-react-app/client
 npm start
 ```
 
