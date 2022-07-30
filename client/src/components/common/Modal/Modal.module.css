@@ -1,0 +1,35 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+}
+
+.modal__wrapper {
+  width: clamp(40rem, 10vw, 100%);
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 3px 0 rgba(255, 255, 255, .25);
+}
+
+.modal__header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.modal__header svg {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.modal__header h2 {
+  font-size: 1.5rem;
+}
+
+.modal__header p {
+  font-size: 1.4rem;
+}

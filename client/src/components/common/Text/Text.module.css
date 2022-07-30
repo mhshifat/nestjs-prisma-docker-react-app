@@ -1,0 +1,22 @@
+.text {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  width: 100% !important;
+}
+
+.sm {
+  font-size: 1.4rem !important;
+  line-height: 2.2rem !important;
+  font-weight: 400 !important;
+}
+
+.xl {
+  font-size: 10rem !important;
+  line-height: 10.8rem !important;
+  font-weight: 400 !important;
+}
+
+.center {
+  text-align: center;
+}

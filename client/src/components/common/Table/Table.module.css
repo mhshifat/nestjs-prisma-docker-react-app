@@ -1,0 +1,42 @@
+.table {
+  width: 100%;
+  margin: 4rem 0;
+}
+
+.table > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table > table > thead > tr > th {
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2.2rem;
+  color: #6f6363;
+  padding-bottom: 1rem;
+}
+
+.table > table > thead > tr > th > div {
+  padding: 0;
+  display: flex;
+  gap: .5rem;
+}
+
+.table > table > tbody > tr > td > div {
+  padding: 1rem 0;
+  display: flex;
+  gap: .5rem;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.right {
+  justify-content: flex-end;
+}

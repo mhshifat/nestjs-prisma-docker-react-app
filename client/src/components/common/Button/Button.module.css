@@ -1,0 +1,23 @@
+.button {
+  width: max-content;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: .7em 2em;
+  border-radius: 5px;
+}
+
+.primary {
+  border: 1px solid #6f6363;
+  background: #6f6363;
+  color: #fff;
+  transition: all 450ms ease-in-out;
+}
+
+.button:hover {
+  opacity: .8;
+}
+
+.full {
+  width: 100%;
+}
