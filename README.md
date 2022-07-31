@@ -20,6 +20,7 @@ open up a new terminal and type
 
 ```shell
 cd nestjs-prisma-docker-react-app
+npm install
 npm run migrate
 npm run start:dev
 ```
@@ -28,6 +29,7 @@ open up a new terminal and type
 
 ```shell
 cd nestjs-prisma-docker-react-app/client
+npm install
 npm start
 ```
 
