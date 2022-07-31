@@ -4,6 +4,7 @@ WORKDIR /backend
 
 COPY package*.json ./
 
+RUN npm cache --force clean && npm install --force node-sass
 RUN npm install
 
 COPY . .

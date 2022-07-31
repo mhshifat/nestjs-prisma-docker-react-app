@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
-const argon = require("argon2");
+const bcrypt = require("bcryptjs");
 const prisma_service_1 = require("./../prisma/prisma.service");
 let AuthService = class AuthService {
     constructor(prisma, jwtService) {
@@ -23,7 +23,7 @@ let AuthService = class AuthService {
         const user = await this.prisma.user.findUnique({ where: { email: dto.email } });
         if (!user)
             throw new common_1.BadRequestException("Wrong credential");
-        const isPwdMatched = await argon.verify(user.password, dto.password);
+        const isPwdMatched = await bcrypt.compare(dto.password, user.password);
         if (!isPwdMatched)
             throw new common_1.BadRequestException("Wrong credential");
         const accessToken = await this.singJwt(user.id, user.email);

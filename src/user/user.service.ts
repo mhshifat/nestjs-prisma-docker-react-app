@@ -2,7 +2,7 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { UserDto } from './dto';
-import * as argon from "argon2";
+import * as bcrypt from "bcryptjs";
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class UserService {
 
   async create(dto: UserDto) {
     try {
-      const hashPassword = await argon.hash(dto.password);
+      const hashPassword = await bcrypt.hash(dto.password, 10);
       const doc = await this.prisma.user.create({
         data: { ...dto, password: hashPassword }
       });

@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import * as argon from "argon2";
+import * as bcrypt from "bcryptjs";
 import { PrismaService } from './../prisma/prisma.service';
 import { Auth } from "./dto/auth.dto";
 
@@ -12,7 +12,7 @@ export class AuthService {
   async login(dto: Auth) {
     const user = await this.prisma.user.findUnique({ where: { email: dto.email } });
     if (!user) throw new BadRequestException("Wrong credential");
-    const isPwdMatched = await argon.verify(user.password, dto.password);
+    const isPwdMatched = await bcrypt.compare(dto.password, user.password);
     if (!isPwdMatched) throw new BadRequestException("Wrong credential");
     const accessToken = await this.singJwt(user.id, user.email);
     delete user.password;

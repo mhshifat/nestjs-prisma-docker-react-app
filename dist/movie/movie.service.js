@@ -25,7 +25,7 @@ let MovieService = class MovieService {
                 { genra: { contains: search, mode: 'insensitive' } }
             ];
         const movies = await this.prisma.movie.findMany({ where: newQuery, orderBy: Object.assign({}, sort ? { [sort.split("|")[0]]: sort.split("|")[1] } : { created_at: "desc" }), take: limit, skip: (page * limit) - limit });
-        const totalDocs = await this.prisma.movie.count();
+        const totalDocs = await this.prisma.movie.count({ where: newQuery });
         const totalPage = Math.ceil(+totalDocs / +limit);
         return {
             items: movies,

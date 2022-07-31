@@ -22,14 +22,13 @@ services:
   #   depends_on:
   #     - db
   db:
-    image: postgres
-    container_name: db
+    image: postgres:14.4-alpine
     ports:
       - 5432:5432
     environment:
+      POSTGRES_DB: nestjs_test
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
-      POSTGRES_DB: nestjs_test
     volumes:
       - database-data:/var/lib/postgresql/data
     networks:

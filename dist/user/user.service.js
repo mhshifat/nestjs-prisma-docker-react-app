@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
-const argon = require("argon2");
+const bcrypt = require("bcryptjs");
 const runtime_1 = require("@prisma/client/runtime");
 let UserService = class UserService {
     constructor(prisma) {
@@ -31,7 +31,7 @@ let UserService = class UserService {
     }
     async create(dto) {
         try {
-            const hashPassword = await argon.hash(dto.password);
+            const hashPassword = await bcrypt.hash(dto.password, 10);
             const doc = await this.prisma.user.create({
                 data: Object.assign(Object.assign({}, dto), { password: hashPassword })
             });
