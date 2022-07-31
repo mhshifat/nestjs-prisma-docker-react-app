@@ -8,7 +8,7 @@ running.
 - NodeJS
 - NPM
 
-Follow these simple steps to have the project running on your machine. Please note the project depends on nodejs and docker to be installed in the system.
+Follow these simple steps to have the project running on your machine. Please note the project depends on nodejs and docker to be installed in the system. Rename .env.example to .env from project root directory.
 
 ```shell
 git clone https://github.com/mhshifat/nestjs-prisma-docker-react-app.git
